@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Catalogue Table - With Images</title>
+</head>
+<body bgcolor="#ffffff">
+
+    <div style="padding: 10px; text-align: right;">
+        <a href="cart.html" target="right_frame" style="font-weight: bold; color: #007bff; text-decoration: none; font-size: 1.1rem;">🛒 View Cart Dashboard</a>
+    </div>
+
+    <table border="2" cellpadding="15" cellspacing="0" width="100%">
+        <thead>
+            <tr bgcolor="#f2f2f2">
+                <th width="25%" align="left">Book Preview</th>
+                <th width="45%" align="left">Book details</th>
+                <th width="15%" align="left">Price</th>
+                <th width="15%" align="left">Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <!-- Book 1 -->
+            <tr>
+                <td valign="top" align="center">
+                    <img src="katabasis.jpg" height="100" alt="Katabasis Cover">
+                </td>
+                <td valign="top">
+                    <b>Katabasis</b>
+                    <br><br>
+                    <font size="3" color="#333333">
+                        <b>Auth Name:</b> R.F. Kuang 
+                        <br>
+                        <b>Publish:</b> Harper Voyager
+                    </font>
+                </td>
+                <td valign="top">
+                    <b>$22.99</b>
+                </td>
+                <td valign="top">
+                    <button onclick="addToCart('book_01', 'Katabasis', 22.99)" style="width: 100%; font-weight: bold; cursor: pointer; padding: 5px;">Add To Cart</button>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" align="center">
+                    <img src="watch me.jpg" height="100" alt="Watch Me Cover">
+                </td>
+                <td valign="top">
+                    <b>Watch Me</b>
+                    <br><br>
+                    <font size="3" color="#333333">
+                        <b>Auth Name:</b> Tahereh Mafi 
+                        <br>
+                        <b>Publish:</b> HarperCollins
+                    </font>
+                </td>
+                <td valign="top">
+                    <b>$18.99</b>
+                </td>
+                <td valign="top">
+                    <button onclick="addToCart('book_02', 'Watch Me', 18.99)" style="width: 100%; font-weight: bold; cursor: pointer; padding: 5px;">Add To Cart</button>
+                </td>
+            </tr>
+
+            <!-- Book 3 -->
+            <tr>
+                <td valign="top" align="center">
+                    <img src="it should have been you.jpg" height="100" alt="It Should Have Been You Cover">
+                </td>
+                <td valign="top">
+                    <b>It Should Have Been You</b>
+                    <br><br>
+                    <font size="3" color="#333333">
+                        <b>Auth Name:</b> Andrea Mara 
+                        <br>
+                        <b>Publish:</b> Bantam Books
+                    </font>
+                </td>
+                <td valign="top">
+                    <b>$16.99</b>
+                </td>
+                <td valign="top">
+                    <button onclick="addToCart('book_03', 'It Should Have Been You', 16.99)" style="width: 100%; font-weight: bold; cursor: pointer; padding: 5px;">Add To Cart</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script src="cart.js"></script>
+</body>
+</html>
