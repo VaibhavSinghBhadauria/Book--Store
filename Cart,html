@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shopping Cart</title>
+</head>
+<body>
+	<header>
+		<h1>Your Shopping Cart</h1>
+		<p><a href="catalogue.html">Continue Shopping</a></p>
+	</header>
+
+	<main>
+		<table border="1" cellpadding="8" cellspacing="0">
+			<caption>Books selected from the catalogue</caption>
+			<thead>
+				<tr>
+					<th scope="col">Book</th>
+					<th scope="col">Author</th>
+					<th scope="col">Publisher</th>
+					<th scope="col">Price</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Katabasis</td>
+					<td>R.F. Kuang</td>
+					<td>Harper Voyager</td>
+					<td>$22.99</td>
+					<td>1</td>
+					<td>$22.99</td>
+				</tr>
+				<tr>
+					<td>Watch Me</td>
+					<td>Tahereh Mafi</td>
+					<td>HarperCollins</td>
+					<td>$18.99</td>
+					<td>1</td>
+					<td>$18.99</td>
+				</tr>
+				<tr>
+					<td>It Should Have Been You</td>
+					<td>Andrea Mara</td>
+					<td>Bantam Books</td>
+					<td>$16.99</td>
+					<td>1</td>
+					<td>$16.99</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th scope="row" colspan="5">Grand Total</th>
+					<td><strong>$58.97</strong></td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<h2>Order Summary</h2>
+		<table border="1" cellpadding="8" cellspacing="0">
+			<tbody>
+				<tr>
+					<th scope="row">Total Books</th>
+					<td>3</td>
+				</tr>
+				<tr>
+					<th scope="row">Total Amount</th>
+					<td>$58.97</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p><button type="button">Proceed to Checkout</button></p>
+	</main>
+</body>
+</html>
