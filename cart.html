@@ -1,77 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Shopping Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Book Store - Shopping Cart</title>
 </head>
-<body>
-	<header>
-		<h1>Your Shopping Cart</h1>
-		<p><a href="catalogue.html">Continue Shopping</a></p>
-	</header>
 
-	<main>
-		<table border="1" cellpadding="8" cellspacing="0">
-			<caption>Books selected from the catalogue</caption>
-			<thead>
-				<tr>
-					<th scope="col">Book</th>
-					<th scope="col">Author</th>
-					<th scope="col">Publisher</th>
-					<th scope="col">Price</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Subtotal</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Katabasis</td>
-					<td>R.F. Kuang</td>
-					<td>Harper Voyager</td>
-					<td>$22.99</td>
-					<td>1</td>
-					<td>$22.99</td>
-				</tr>
-				<tr>
-					<td>Watch Me</td>
-					<td>Tahereh Mafi</td>
-					<td>HarperCollins</td>
-					<td>$18.99</td>
-					<td>1</td>
-					<td>$18.99</td>
-				</tr>
-				<tr>
-					<td>It Should Have Been You</td>
-					<td>Andrea Mara</td>
-					<td>Bantam Books</td>
-					<td>$16.99</td>
-					<td>1</td>
-					<td>$16.99</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<th scope="row" colspan="5">Grand Total</th>
-					<td><strong>$58.97</strong></td>
-				</tr>
-			</tfoot>
-		</table>
+<body style="background-color: #DDE8C8;
+             font-family: Arial, sans-serif;
+             color: #4B3621;
+             padding: 15px;">
 
-		<h2>Order Summary</h2>
-		<table border="1" cellpadding="8" cellspacing="0">
-			<tbody>
-				<tr>
-					<th scope="row">Total Books</th>
-					<td>3</td>
-				</tr>
-				<tr>
-					<th scope="row">Total Amount</th>
-					<td>$58.97</td>
-				</tr>
-			</tbody>
-		</table>
+    <header>
+        <h1>Your Shopping Cart</h1>
 
-		<p><button type="button">Proceed to Checkout</button></p>
-	</main>
+        <p>
+            <a href="catalogue.html" target="f3"
+               style="color: #6B2D1A;">
+                ← Continue Shopping
+            </a>
+        </p>
+    </header>
+
+    <main>
+        <h2>Selected Engineering Books</h2>
+
+        <table border="1" cellpadding="8"
+               cellspacing="0" width="100%"
+               style="border-collapse: collapse;
+                      background-color: white;">
+
+            <caption style="padding: 10px;">
+                Books selected from the catalogue
+            </caption>
+
+            <thead style="background-color: #FFD6A5;">
+                <tr>
+                    <th scope="col">Book</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="cartItems">
+                <!-- Cart items are added automatically by cart.js -->
+            </tbody>
+
+            <tfoot>
+                <tr style="background-color: #FFD6A5;">
+                    <th scope="row" colspan="3">Grand Total</th>
+                    <td colspan="2">
+                        <strong id="cartTotal">₹0</strong>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h2>Order Summary</h2>
+
+        <table border="1" cellpadding="8"
+               cellspacing="0"
+               style="border-collapse: collapse;
+                      background-color: white;">
+
+            <tbody>
+                <tr>
+                    <th scope="row">Total Books</th>
+                    <td id="totalBooks">0</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Total Amount</th>
+                    <td id="summaryTotal">₹0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <button type="button" onclick="clearCart()"
+                    style="padding: 8px 12px;
+                           cursor: pointer;">
+                Clear Cart
+            </button>
+        </p>
+
+        <p>
+            <button type="button"
+                    onclick="alert('Checkout functionality is not implemented yet.')"
+                    style="padding: 8px 12px;
+                           cursor: pointer;">
+                Proceed to Checkout
+            </button>
+        </p>
+    </main>
+
+    <script src="cart.js"></script>
+
+    <script>
+        // Update the order summary
+        function updateOrderSummary() {
+            const cart = JSON.parse(
+                localStorage.getItem("bookCart")
+            ) || [];
+
+            const totalBooks = cart.reduce(
+                (sum, book) => sum + book.quantity, 0
+            );
+
+            const totalAmount = cart.reduce(
+                (sum, book) => sum + book.price * book.quantity, 0
+            );
+
+            document.getElementById("totalBooks").textContent =
+                totalBooks;
+
+            document.getElementById("summaryTotal").textContent =
+                "₹" + totalAmount;
+        }
+
+        // Refresh the summary whenever the cart is displayed
+        document.addEventListener("DOMContentLoaded", function() {
+            updateOrderSummary();
+
+            // Recalculate after cart actions
+            const originalDisplayCart = displayCart;
+
+            displayCart = function() {
+                originalDisplayCart();
+                updateOrderSummary();
+            };
+
+            displayCart();
+        });
+    </script>
+
 </body>
 </html>
