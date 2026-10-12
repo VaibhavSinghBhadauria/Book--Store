@@ -2,86 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Catalogue Table - With Images</title>
+    <title>Engineering Book Catalogue</title>
 </head>
+
 <body bgcolor="#ffffff">
 
     <div style="padding: 10px; text-align: right;">
-        <a href="cart.html" target="right_frame" style="font-weight: bold; color: #007bff; text-decoration: none; font-size: 1.1rem;">🛒 View Cart Dashboard</a>
+        <a href="cart.html" target="right_frame"
+           style="font-weight: bold; color: #007bff;
+           text-decoration: none; font-size: 1.1rem;">
+            🛒 View Cart Dashboard
+        </a>
     </div>
 
-    <table border="2" cellpadding="15" cellspacing="0" width="100%">
+    <table border="2" cellpadding="15"
+           cellspacing="0" width="100%">
+
         <thead>
             <tr bgcolor="#f2f2f2">
                 <th width="25%" align="left">Book Preview</th>
-                <th width="45%" align="left">Book details</th>
+                <th width="45%" align="left">Book Details</th>
                 <th width="15%" align="left">Price</th>
                 <th width="15%" align="left">Payment</th>
             </tr>
         </thead>
+
         <tbody>
-            
-            <!-- Book 1 -->
+
+            <!-- BOOK 1: CSE -->
             <tr>
                 <td valign="top" align="center">
-                    <img src="81gvI5Hv8cL._UF350,350_QL50_.jpg" height="100" alt="Katabasis Cover">
+                    <img
+                        src="https://covers.openlibrary.org/b/isbn/9788183331630-L.jpg"
+                        height="140"
+                        alt="Let Us C book cover">
                 </td>
+
                 <td valign="top">
-                    <b>Katabasis</b>
-                    <br><br>
+                    <b>Let Us C</b><br><br>
                     <font size="3" color="#333333">
-                        <b>Auth Name:</b> R.F. Kuang 
-                        <br>
-                        <b>Publish:</b> Harper Voyager
+                        <b>Branch:</b> CSE<br>
+                        <b>Author:</b> Yashavant Kanetkar<br>
+                        <b>Publisher:</b> BPB Publications
                     </font>
                 </td>
+
+                <td valign="top"><b>₹450</b></td>
+
                 <td valign="top">
-                    <b>$22.99</b>
-                </td>
-                <td valign="top">
-                    <button onclick="addToCart('book_01', 'Katabasis', 22.99)" style="width: 100%; font-weight: bold; cursor: pointer; padding: 5px;">Add To Cart</button>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" align="center">
-                    <img src="Watch me cover.jpg" height="100" alt="Watch Me Cover">
-                </td>
-                <td valign="top">
-                    <b>Watch Me</b>
-                    <br><br>
-                    <font size="3" color="#333333">
-                        <b>Auth Name:</b> Tahereh Mafi 
-                        <br>
-                        <b>Publish:</b> HarperCollins
-                    </font>
-                </td>
-                <td valign="top">
-                    <b>$18.99</b>
-                </td>
-                <td valign="top">
-                    <button onclick="addToCart('book_02', 'Watch Me', 18.99)" style="width: 100%; font-weight: bold; cursor: pointer; padding: 5px;">Add To Cart</button>
+                    <button onclick="addToCart(
+                        'book_cse',
+                        'Let Us C',
+                        450
+                    )"
+                    style="width:100%; font-weight:bold;
+                    cursor:pointer; padding:5px;">
+                        Add To Cart
+                    </button>
                 </td>
             </tr>
 
-            <!-- Book 3 -->
+            <!-- BOOK 2: ECE -->
             <tr>
                 <td valign="top" align="center">
-                    <img src="It Should.jpg" height="100" alt="It Should Have Been You Cover">
+                    <img
+                        src="https://covers.openlibrary.org/b/isbn/9780132622264-L.jpg"
+                        height="140"
+                        alt="Electronic Devices and Circuit Theory book cover">
                 </td>
+
                 <td valign="top">
-                    <b>It Should Have Been You</b>
+                    <b>Electronic Devices and Circuit Theory</b>
                     <br><br>
                     <font size="3" color="#333333">
-                        <b>Auth Name:</b> Andrea Mara 
-                        <br>
-                        <b>Publish:</b> Bantam Books
+                        <b>Branch:</b> ECE<br>
+                        <b>Authors:</b> Robert L. Boylestad and
+                        Louis Nashelsky<br>
+                        <b>Publisher:</b> Pearson
                     </font>
                 </td>
+
+                <td valign="top"><b>₹750</b></td>
+
                 <td valign="top">
-                    <b>$16.99</b>
+                    <button onclick="addToCart(
+                        'book_ece',
+                        'Electronic Devices and Circuit Theory',
+                        750
+                    )"
+                    style="width:100%; font-weight:bold;
+                    cursor:pointer; padding:5px;">
+                        Add To Cart
+                    </button>
                 </td>
+            </tr>
+
+            <!-- BOOK 3: EEE -->
+            <tr>
+                <td valign="top" align="center">
+                    <img
+                        src="https://covers.openlibrary.org/b/isbn/9780470871808-L.jpg"
+                        height="140"
+                        alt="Principles of Electric Machines and Power Electronics book cover">
+                </td>
+
                 <td valign="top">
-                    <button onclick="addToCart('book_03', 'It Should Have Been You', 16.99)" style="width: 100%; font-weight: bold; cursor: pointer; padding: 5px;">Add To Cart</button>
+                    <b>Principles of Electric Machines and Power Electronics</b>
+                    <br><br>
+                    <font size="3" color="#333333">
+                        <b>Branch:</b> EEE<br>
+                        <b>Author:</b> P. C. Sen<br>
+                        <b>Publisher:</b> Wiley
+                    </font>
+                </td>
+
+                <td valign="top"><b>₹850</b></td>
+
+                <td valign="top">
+                    <button onclick="addToCart(
+                        'book_eee',
+                        'Principles of Electric Machines and Power Electronics',
+                        850
+                    )"
+                    style="width:100%; font-weight:bold;
+                    cursor:pointer; padding:5px;">
+                        Add To Cart
+                    </button>
+                </td>
+            </tr>
+
+            <!-- BOOK 4: CIVIL -->
+            <tr>
+                <td valign="top" align="center">
+                    <img
+                        src="https://covers.openlibrary.org/b/isbn/9788121926164-L.jpg"
+                        height="140"
+                        alt="Engineering Mechanics book cover">
+                </td>
+
+                <td valign="top">
+                    <b>A Textbook of Engineering Mechanics</b>
+                    <br><br>
+                    <font size="3" color="#333333">
+                        <b>Branch:</b> CIVIL<br>
+                        <b>Author:</b> R. S. Khurmi<br>
+                        <b>Publisher:</b> S. Chand
+                    </font>
+                </td>
+
+                <td valign="top"><b>₹550</b></td>
+
+                <td valign="top">
+                    <button onclick="addToCart(
+                        'book_civil',
+                        'A Textbook of Engineering Mechanics',
+                        550
+                    )"
+                    style="width:100%; font-weight:bold;
+                    cursor:pointer; padding:5px;">
+                        Add To Cart
+                    </button>
                 </td>
             </tr>
 
@@ -89,5 +169,6 @@
     </table>
 
     <script src="cart.js"></script>
+
 </body>
 </html>
