@@ -1,174 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Engineering Book Catalogue</title>
+    <title>Book Catalogue</title>
+
+    <style>
+        body {
+            background: #F5EDB8;
+            color: #665018;
+            font-family: Arial;
+        }
+
+        h1, h2 {
+            color: #795500;
+        }
+
+        a {
+            color: #795500;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body bgcolor="#ffffff">
+<body>
+    <h1>Engineering Book Catalogue</h1>
+    <p>Select your engineering branch:</p>
 
-    <div style="padding: 10px; text-align: right;">
-        <a href="cart.html" target="right_frame"
-           style="font-weight: bold; color: #007bff;
-           text-decoration: none; font-size: 1.1rem;">
-            🛒 View Cart Dashboard
-        </a>
-    </div>
+    <h2><a href="CSE.html" target="f3">CSE Books</a></h2>
+    <h2><a href="ECE.html" target="f3">ECE Books</a></h2>
+    <h2><a href="EEE.html" target="f3">EEE Books</a></h2>
+    <h2><a href="CIVIL.html" target="f3">CIVIL Books</a></h2>
 
-    <table border="2" cellpadding="15"
-           cellspacing="0" width="100%">
-
-        <thead>
-            <tr bgcolor="#f2f2f2">
-                <th width="25%" align="left">Book Preview</th>
-                <th width="45%" align="left">Book Details</th>
-                <th width="15%" align="left">Price</th>
-                <th width="15%" align="left">Payment</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <!-- BOOK 1: CSE -->
-            <tr>
-                <td valign="top" align="center">
-                    <img
-                        src="https://covers.openlibrary.org/b/isbn/9788183331630-L.jpg"
-                        height="140"
-                        alt="Let Us C book cover">
-                </td>
-
-                <td valign="top">
-                    <b>Let Us C</b><br><br>
-                    <font size="3" color="#333333">
-                        <b>Branch:</b> CSE<br>
-                        <b>Author:</b> Yashavant Kanetkar<br>
-                        <b>Publisher:</b> BPB Publications
-                    </font>
-                </td>
-
-                <td valign="top"><b>₹450</b></td>
-
-                <td valign="top">
-                    <button onclick="addToCart(
-                        'book_cse',
-                        'Let Us C',
-                        450
-                    )"
-                    style="width:100%; font-weight:bold;
-                    cursor:pointer; padding:5px;">
-                        Add To Cart
-                    </button>
-                </td>
-            </tr>
-
-            <!-- BOOK 2: ECE -->
-            <tr>
-                <td valign="top" align="center">
-                    <img
-                        src="https://covers.openlibrary.org/b/isbn/9780132622264-L.jpg"
-                        height="140"
-                        alt="Electronic Devices and Circuit Theory book cover">
-                </td>
-
-                <td valign="top">
-                    <b>Electronic Devices and Circuit Theory</b>
-                    <br><br>
-                    <font size="3" color="#333333">
-                        <b>Branch:</b> ECE<br>
-                        <b>Authors:</b> Robert L. Boylestad and
-                        Louis Nashelsky<br>
-                        <b>Publisher:</b> Pearson
-                    </font>
-                </td>
-
-                <td valign="top"><b>₹750</b></td>
-
-                <td valign="top">
-                    <button onclick="addToCart(
-                        'book_ece',
-                        'Electronic Devices and Circuit Theory',
-                        750
-                    )"
-                    style="width:100%; font-weight:bold;
-                    cursor:pointer; padding:5px;">
-                        Add To Cart
-                    </button>
-                </td>
-            </tr>
-
-            <!-- BOOK 3: EEE -->
-            <tr>
-                <td valign="top" align="center">
-                    <img
-                        src="https://covers.openlibrary.org/b/isbn/9780470871808-L.jpg"
-                        height="140"
-                        alt="Principles of Electric Machines and Power Electronics book cover">
-                </td>
-
-                <td valign="top">
-                    <b>Principles of Electric Machines and Power Electronics</b>
-                    <br><br>
-                    <font size="3" color="#333333">
-                        <b>Branch:</b> EEE<br>
-                        <b>Author:</b> P. C. Sen<br>
-                        <b>Publisher:</b> Wiley
-                    </font>
-                </td>
-
-                <td valign="top"><b>₹850</b></td>
-
-                <td valign="top">
-                    <button onclick="addToCart(
-                        'book_eee',
-                        'Principles of Electric Machines and Power Electronics',
-                        850
-                    )"
-                    style="width:100%; font-weight:bold;
-                    cursor:pointer; padding:5px;">
-                        Add To Cart
-                    </button>
-                </td>
-            </tr>
-
-            <!-- BOOK 4: CIVIL -->
-            <tr>
-                <td valign="top" align="center">
-                    <img
-                        src="https://covers.openlibrary.org/b/isbn/9788121926164-L.jpg"
-                        height="140"
-                        alt="Engineering Mechanics book cover">
-                </td>
-
-                <td valign="top">
-                    <b>A Textbook of Engineering Mechanics</b>
-                    <br><br>
-                    <font size="3" color="#333333">
-                        <b>Branch:</b> CIVIL<br>
-                        <b>Author:</b> R. S. Khurmi<br>
-                        <b>Publisher:</b> S. Chand
-                    </font>
-                </td>
-
-                <td valign="top"><b>₹550</b></td>
-
-                <td valign="top">
-                    <button onclick="addToCart(
-                        'book_civil',
-                        'A Textbook of Engineering Mechanics',
-                        550
-                    )"
-                    style="width:100%; font-weight:bold;
-                    cursor:pointer; padding:5px;">
-                        Add To Cart
-                    </button>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-
-    <script src="cart.js"></script>
-
+    <br>
+    <a href="cart.html" target="f3">View Shopping Cart</a>
 </body>
 </html>
