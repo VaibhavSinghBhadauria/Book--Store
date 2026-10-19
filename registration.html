@@ -1,82 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            background: #F5EDB8;
+            color: #665018;
+            font-family: Arial;
+        }
+
+        h1 {
+            color: #795500;
+        }
+
+        form {
+            width: 90%;
+            max-width: 450px;
+            margin: auto;
+        }
+
+        input, select, textarea {
+            margin: 5px;
+            padding: 7px;
+            max-width: 100%;
+        }
+
+        .field {
+            margin: 12px 0;
+        }
+
+        button {
+            background: #795500;
+            color: white;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-   
-<body bgcolor=" yellow "> 
-    <center >
-    <font color =" blue ">
-  <h1><strong>Registration Form</strong></h1> <br>
-  <form>
-    
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name"><br><br>
 
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
-
-    
-    <label for="email">E-mail ID:</label>
-    <input type="text" id="email" name="email"><br><br>
-
-    
-    <label for="phone">Phone Number:</label>
-    <input type="text" id="phone" name="phone"><br><br>
-
-   
-    <label>Sex:</label>
-    <input type="radio" id="male" name="sex" value="Male">
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="sex" value="Female">
-    <label for="female">Female</label><br><br>
-
-    
-    <label>Date of Birth:</label>
-    <select name="day">
-      <option value="">Day</option>
-      <option>1</option><option>2</option><option>3</option><option>4</option>
-      <option>5</option><option>6</option><option>7</option><option>8</option>
-      <option>9</option><option>10</option><option>11</option><option>12</option>
-      <option>13</option><option>14</option><option>15</option><option>16</option>
-      <option>17</option><option>18</option><option>19</option><option>20</option>
-      <option>21</option><option>22</option><option>23</option><option>24</option>
-      <option>25</option><option>26 </option><Option>27</Option>
-      <Option>28</Option>
-      <Option>29</Option>
-      <Option>30</Option>
-      <Option>31</Option>
-    </select>
-    <select name="month">
-      <option value="">Month</option>
-      <option>January</option><option>February</option><option>March</option>
-      <option>April</option><option>May</option><option>June</option>
-      <option>July</option><option>August</option><option>September</option>
-      <option>October</option><option>November</option><option>December</option>
-    </select>
-    <select name="year">
-      <option value="">Year</option>
-      <option>2000</option><option>2001</option><option>2002</option><option>2003</option>
-      <option>2004</option><option>2005</option><option>2006</option><option>2007</option>
-    </select><br><br>
-
-    
-    <label>Languages Known:</label>
-    <input type="checkbox" id="english" name="languages" value="English">
-    <label for="english">English</label>
-    <input type="checkbox" id="telugu" name="languages" value="Telugu">
-    <label for="telugu">Telugu</label>
-    <input type="checkbox" id="hindi" name="languages" value="Hindi">
-    <label for="hindi">Hindi</label>
-    <input type="checkbox" id="tamil" name="languages" value="Tamil">
-    <label for="tamil">Tamil</label><br><br>
-
- 
-    <label for="address">Address:</label><br>
-    <textarea id="address" name="address" rows="4" cols="40"></textarea><br><br>
-
-    
-    <input type="submit" value="Register">
-  </form>
-
-    </font>
+<body>
+    <center>
+        <h1>Registration Form</h1>
     </center>
+
+    <form id="registrationForm">
+        <div class="field">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required>
+        </div>
+
+        <div class="field">
+            <label for="email">E-mail ID:</label><br>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="field">
+            <label for="password">Password (at least 8 characters):</label><br>
+            <input type="password" id="password" minlength="8" required>
+        </div>
+
+        <div class="field">
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" minlength="8" required>
+        </div>
+
+        <div class="field">
+            <label for="phone">Phone Number (10 digits):</label><br>
+            <input type="tel" id="phone" pattern="[0-9]{10}"
+                   maxlength="10" required>
+        </div>
+
+        <div class="field">
+            <label for="sex">Sex:</label><br>
+            <select id="sex" required>
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" required>
+        </div>
+
+        <div class="field">
+            <label>Languages Known:</label><br>
+            <label><input type="checkbox" name="language" value="English"> English</label><br>
+            <label><input type="checkbox" name="language" value="Hindi"> Hindi</label><br>
+            <label><input type="checkbox" name="language" value="Telugu"> Telugu</label><br>
+            <label><input type="checkbox" name="language" value="Tamil"> Tamil</label>
+        </div>
+
+        <div class="field">
+            <label for="address">Address:</label><br>
+            <textarea id="address" rows="4" required></textarea>
+        </div>
+
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+
+        <p id="message"></p>
+
+        <p>
+            Already registered?
+            <a href="login.html" target="f3">Login here</a>
+        </p>
+    </form>
+
+    <script>
+        document.getElementById("registrationForm")
+        .addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let password = document.getElementById("password").value;
+            let confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            let languages =
+                document.querySelectorAll('input[name="language"]:checked');
+
+            let message = document.getElementById("message");
+
+            if (password.length < 8) {
+                message.innerText =
+                    "Password must contain at least 8 characters.";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                message.innerText = "Passwords do not match.";
+                return;
+            }
+
+            if (!/^[0-9]{10}$/.test(
+                document.getElementById("phone").value
+            )) {
+                message.innerText =
+                    "Enter a valid 10-digit phone number.";
+                return;
+            }
+
+            if (languages.length === 0) {
+                message.innerText =
+                    "Please select at least one language.";
+                return;
+            }
+
+            let users = JSON.parse(
+                localStorage.getItem("bookStoreUsers") || "[]"
+            );
+
+            let email = document.getElementById("email")
+                            .value.trim().toLowerCase();
+
+            if (users.some(user => user.email === email)) {
+                message.innerText =
+                    "This email is already registered. Please log in.";
+                return;
+            }
+
+            users.push({
+                name: document.getElementById("name").value.trim(),
+                email: email,
+                password: password
+            });
+
+            localStorage.setItem(
+                "bookStoreUsers",
+                JSON.stringify(users)
+            );
+
+            message.innerText =
+                "Registration successful! You can now log in.";
+
+            this.reset();
+        });
+    </script>
 </body>
 </html>
