@@ -2,44 +2,101 @@
 <html>
 <head>
     <title>Login Page</title>
+
+    <style>
+        body {
+            background: #F5EDB8;
+            color: #665018;
+            font-family: Arial;
+        }
+
+        h1 {
+            color: #795500;
+        }
+
+        form {
+            width: 90%;
+            max-width: 350px;
+            margin: auto;
+        }
+
+        input {
+            padding: 8px;
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        button {
+            background: #795500;
+            color: white;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body style="background-color: #DDE8C8; color: #4B3621;">
-
+<body>
     <center>
-        <h2>Login Page</h2>
-
-        <br><br><br>
-
-        <form onsubmit="return validateLogin()">
-
-            <label for="username">User Name:</label>
-            <input type="text" id="username" name="username">
-            <br><br>
-
-            &nbsp;&nbsp;
-            <label for="password">Password:</label>
-            &nbsp;
-            <input type="password" id="password" name="password">
-            <br><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <input type="submit" value="Submit">
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <input type="reset" value="Reset">
-
-            <br><br>
-
-            <a href="registration.html"
-               style="color: #4B3621;">
-                Register Here
-            </a>
-
-        </form>
+        <h1>Login Page</h1>
     </center>
 
+    <form id="loginForm">
+        <label for="email">E-mail ID:</label>
+        <input type="email" id="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password"
+               minlength="8" required>
+
+        <button type="submit">Login</button>
+        <button type="reset">Reset</button>
+
+        <p id="message"></p>
+
+        <p>
+            New user?
+            <a href="registration.html" target="f3">
+                Register Here
+            </a>
+        </p>
+    </form>
+
+    <script>
+        document.getElementById("loginForm")
+        .addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email")
+                            .value.trim().toLowerCase();
+
+            let password =
+                document.getElementById("password").value;
+
+            let message = document.getElementById("message");
+
+            if (password.length < 8) {
+                message.innerText =
+                    "Password must contain at least 8 characters.";
+                return;
+            }
+
+            let users = JSON.parse(
+                localStorage.getItem("bookStoreUsers") || "[]"
+            );
+
+            let user = users.find(function(item) {
+                return item.email === email &&
+                       item.password === password;
+            });
+
+            if (user) {
+                message.innerText =
+                    "Login successful! Welcome, " + user.name + ".";
+            } else {
+                message.innerText =
+                    "Invalid email or password. Please register first if you do not have an account.";
+            }
+        });
+    </script>
 </body>
 </html>
