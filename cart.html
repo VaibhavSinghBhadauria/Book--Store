@@ -1,139 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Book Store - Shopping Cart</title>
+    <title>Shopping Cart</title>
+
+    <style>
+        body {
+            background: #F5EDB8;
+            color: #665018;
+            font-family: Arial;
+        }
+
+        h1, h2 {
+            color: #795500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFF9DE;
+        }
+
+        th, td {
+            border: 1px solid #B99A45;
+            padding: 9px;
+            text-align: center;
+        }
+
+        th {
+            background: #E8D98C;
+        }
+
+        button {
+            background: #795500;
+            color: white;
+            padding: 5px 8px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body style="background-color: #DDE8C8;
-             font-family: Arial, sans-serif;
-             color: #4B3621;
-             padding: 15px;">
+<body onload="displayCart()">
 
-    <header>
-        <h1>Your Shopping Cart</h1>
+    <h1>Your Shopping Cart</h1>
 
-        <p>
-            <a href="catalogue.html" target="f3"
-               style="color: #6B2D1A;">
-                ← Continue Shopping
-            </a>
-        </p>
-    </header>
+    <a href="catalogue.html" target="f3">
+        Continue Shopping
+    </a>
 
-    <main>
-        <h2>Selected Engineering Books</h2>
+    <h2>Selected Books</h2>
 
-        <table border="1" cellpadding="8"
-               cellspacing="0" width="100%"
-               style="border-collapse: collapse;
-                      background-color: white;">
+    <table>
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
-            <caption style="padding: 10px;">
-                Books selected from the catalogue
-            </caption>
+        <tbody id="cartItems">
+        </tbody>
 
-            <thead style="background-color: #FFD6A5;">
-                <tr>
-                    <th scope="col">Book</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Subtotal</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
+        <tfoot>
+            <tr>
+                <th colspan="3">Grand Total</th>
+                <th colspan="2" id="cartTotal">₹0</th>
+            </tr>
+        </tfoot>
+    </table>
 
-            <tbody id="cartItems">
-                <!-- Cart items are added automatically by cart.js -->
-            </tbody>
+    <h2>Order Summary</h2>
 
-            <tfoot>
-                <tr style="background-color: #FFD6A5;">
-                    <th scope="row" colspan="3">Grand Total</th>
-                    <td colspan="2">
-                        <strong id="cartTotal">₹0</strong>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+    <p>Total Books: <strong id="totalBooks">0</strong></p>
 
-        <h2>Order Summary</h2>
+    <p>Total Amount: <strong id="summaryTotal">₹0</strong></p>
 
-        <table border="1" cellpadding="8"
-               cellspacing="0"
-               style="border-collapse: collapse;
-                      background-color: white;">
+    <button onclick="clearCart()">Clear Cart</button>
 
-            <tbody>
-                <tr>
-                    <th scope="row">Total Books</th>
-                    <td id="totalBooks">0</td>
-                </tr>
+    <button onclick="checkout()">Proceed to Checkout</button>
 
-                <tr>
-                    <th scope="row">Total Amount</th>
-                    <td id="summaryTotal">₹0</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>
-            <button type="button" onclick="clearCart()"
-                    style="padding: 8px 12px;
-                           cursor: pointer;">
-                Clear Cart
-            </button>
-        </p>
-
-        <p>
-            <button type="button"
-                    onclick="alert('Checkout functionality is not implemented yet.')"
-                    style="padding: 8px 12px;
-                           cursor: pointer;">
-                Proceed to Checkout
-            </button>
-        </p>
-    </main>
+    <p id="message"></p>
 
     <script src="cart.js"></script>
 
     <script>
-        // Update the order summary
-        function updateOrderSummary() {
-            const cart = JSON.parse(
-                localStorage.getItem("bookCart")
-            ) || [];
+        function checkout() {
+            let cart = getCart();
+            let message = document.getElementById("message");
 
-            const totalBooks = cart.reduce(
-                (sum, book) => sum + book.quantity, 0
-            );
+            if (cart.length === 0) {
+                message.innerText = "Please add books before checkout.";
+                return;
+            }
 
-            const totalAmount = cart.reduce(
-                (sum, book) => sum + book.price * book.quantity, 0
-            );
-
-            document.getElementById("totalBooks").textContent =
-                totalBooks;
-
-            document.getElementById("summaryTotal").textContent =
-                "₹" + totalAmount;
+            message.innerText =
+                "Demo checkout only. No payment has been processed.";
         }
-
-        // Refresh the summary whenever the cart is displayed
-        document.addEventListener("DOMContentLoaded", function() {
-            updateOrderSummary();
-
-            // Recalculate after cart actions
-            const originalDisplayCart = displayCart;
-
-            displayCart = function() {
-                originalDisplayCart();
-                updateOrderSummary();
-            };
-
-            displayCart();
-        });
     </script>
 
 </body>
