@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECE Books</title>
+
+    <style>
+        body { background:#F5EDB8; color:#665018; font-family:Arial; }
+        h1, h3 { color:#795500; }
+        .book { border:1px solid #B99A45; padding:12px; margin:12px 0; background:#FFF9DE; }
+        img { width:90px; height:120px; object-fit:contain; }
+        button { background:#795500; color:white; padding:7px 12px; cursor:pointer; }
+    </style>
+</head>
+
+<body>
+    <h1>ECE Book Catalogue</h1>
+    <a href="cart.html" target="f3">View Cart</a>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/isbn/9780132622264-M.jpg"
+             alt="Electronic Devices and Circuit Theory cover">
+        <h3>Electronic Devices and Circuit Theory</h3>
+        <p>Authors: Robert L. Boylestad and Louis Nashelsky</p>
+        <p>Price: ₹750</p>
+        <button onclick="addToCart('ece1','Electronic Devices and Circuit Theory',750)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/isbn/9780190853464-M.jpg"
+             alt="Microelectronic Circuits cover">
+        <h3>Microelectronic Circuits</h3>
+        <p>Authors: Adel S. Sedra and Kenneth C. Smith</p>
+        <p>Price: ₹850</p>
+        <button onclick="addToCart('ece2','Microelectronic Circuits',850)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/isbn/9780132774208-M.jpg"
+             alt="Digital Design cover">
+        <h3>Digital Design</h3>
+        <p>Authors: M. Morris Mano and Michael D. Ciletti</p>
+        <p>Price: ₹700</p>
+        <button onclick="addToCart('ece3','Digital Design',700)">
+            Add to Cart
+        </button>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>
